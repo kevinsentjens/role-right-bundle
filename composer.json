@@ -1,0 +1,28 @@
+{
+    "name": "kevinsentjens/role-right-bundle",
+    "description": "A Symfony implementation of a role right system.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Sentjens",
+            "email": "kevinsentjens.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "symfony/console": "^5.1.8",
+        "symfony/http-kernel": "^5.1.5",
+        "symfony/orm-pack": "*",
+        "symfony/security-bundle": "5.1.8",
+        "symfony/twig-pack": "*",
+        "symfony/dependency-injection": "^5.1.8",
+        "symfony/config": "^5.1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "KS\\RoleRightBundle\\": "src/"
+        },
+        "exclude-from-classmap": ["src/Resources/skeleton"]
+    }
+}

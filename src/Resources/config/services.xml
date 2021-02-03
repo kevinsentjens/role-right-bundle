@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="ks_role_right.ks_role_right" class="KS\RoleRightBundle\KSRoleRight">
+            <argument type="service" id="security.helper" />
+            <argument type="service" id="Doctrine\ORM\EntityManagerInterface" />
+        </service>
+
+        <service id="ks_role_right.ks_command_helper" class="KS\RoleRightBundle\KSCommandHelper">
+            <argument id="appDirectory" />
+        </service>
+
+        <service id="ks_role_right.ks_set_files" class="KS\RoleRightBundle\Command\KSSetFilesCommand">
+            <tag name="console.command" />
+            <argument type="service" id="ks_role_right.ks_command_helper" />
+        </service>
+
+        <service id="ks_role_right.ks_twig_extension" class="KS\RoleRightBundle\Twig\KSTwigExtension">
+            <tag name="twig.extension" />
+            <argument type="service" id="ks_role_right.ks_role_right" />
+        </service>
+
+        <service id="KS\RoleRightBundle\KSRoleRight" alias="ks_role_right.ks_role_right" />
+        <service id="KS\RoleRightBundle\KSCommandHelper" alias="ks_role_right.ks_command_helper" />
+        <service id="KS\RoleRightBundle\Twig\KSTwigExtension" alias="ks_role_right.ks_twig_extension" />
+    </services>
+</container>
