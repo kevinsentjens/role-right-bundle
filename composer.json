@@ -3,6 +3,7 @@
     "description": "A Symfony implementation of a role right system.",
     "type": "symfony-bundle",
     "license": "MIT",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Kevin Sentjens",
