@@ -6,7 +6,7 @@ This bundle gives you a structure to create and manage roles and rights.
 * 3 entities `User, KSRole, KSRight`
 * 3 repositories `UserRepository, KSRoleRepository, KSRightRepository`
 * A bin/console command to place the entities and repositories in the src folder
-* Twig functions to handle `KSRole` and `KSRight` checking.
+* Twig functions to handle `KSRole` and `KSRight` checking
 
 ##The bundle does not contain
 This bundle does **not** provide controllers or views. It just provides the functionality. I might include it in the future.
@@ -88,6 +88,6 @@ This package is free software distributed under the terms of the [MIT license](L
 
 ##Updates
 * Februari 4th 2021
-    * Added methods in the `KSRoleRight` class to get `KSRole` and `KSRight` by name.
-    * Added methods in the `KSRoleRight` class to get `KSRole` and `KSRight` by id.
+    * Added methods in the `KSRoleRight` class to get `KSRole` and `KSRight` by name
+    * Added methods in the `KSRoleRight` class to get `KSRole` and `KSRight` by id
     * Updated the ReadMe file
