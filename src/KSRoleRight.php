@@ -2,6 +2,8 @@
 
 namespace KS\RoleRightBundle;
 
+use App\Entity\KSRight;
+use App\Entity\KSRole;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Security;
@@ -33,6 +35,7 @@ class KSRoleRight
     }
 
     /**
+     * Checks if user has given KSRight.
      * @param string $ksRight
      * @return bool
      */
@@ -56,6 +59,7 @@ class KSRoleRight
     }
 
     /**
+     * Checks if user has given KSRole
      * @param string $ksRole
      * @return bool
      */
@@ -86,6 +90,50 @@ class KSRoleRight
             ->from('App:User', 'ev')
             ->where('ev.email = :email')
             ->setParameter('email', $email)
+            ->setMaxResults(1)
+        ;
+        $result = $query->getQuery()->getResult();
+        if (!empty($result))
+        {
+            return $result[0];
+        }
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Get KSRight by name of the right. E.g. manage-users.
+     * @param string $ksRight
+     * @return array|KSRight
+     */
+    public function getKSRightByRightName(string $ksRight)
+    {
+        $query = $this->entityManager->createQueryBuilder();
+        $query->select('ev')
+            ->from('App:KSRight', 'ev')
+            ->where('ev.ks_right = :ksRight')
+            ->setParameter('ksRight', $ksRight)
+            ->setMaxResults(1)
+        ;
+        $result = $query->getQuery()->getResult();
+        if (!empty($result))
+        {
+            return $result[0];
+        }
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Get KSRole by name of the role. E.g. SUPER_ADMIN.
+     * @param string $ksRole
+     * @return array|KSRole
+     */
+    public function getKSRoleByRoleName(string $ksRole)
+    {
+        $query = $this->entityManager->createQueryBuilder();
+        $query->select('ev')
+            ->from('App:KSRole', 'ev')
+            ->where('ev.ks_role = :ksRole')
+            ->setParameter('ksRole', $ksRole)
             ->setMaxResults(1)
         ;
         $result = $query->getQuery()->getResult();
