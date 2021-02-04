@@ -59,12 +59,12 @@ public function __construct(KSRoleRight $ksRoleRight)
     }
 }
 ```
-You can do this in either the controllers `__construct()` so that it works for every route or you can use it in just a single function.
+You can do this in either the controllers `__construct()` so it works for every route or you can use it in just a single function.
 The `KSRole` works exactly the same way. Just replace 
 ```php
 if (!$ksRoleRight->hasKSRight('manage-users'))
 ```
-with
+**with**
 ```php
 if (!$ksRoleRight->hasKSRole('SUPER_ADMIN'))
 ```
@@ -72,9 +72,9 @@ if (!$ksRoleRight->hasKSRole('SUPER_ADMIN'))
 ###Twig view
 This bundle provides 2 `Twig Functions` and 1 `Twig filter`
 
-To check a KSRight you can use the function `has_right('name of right')`
+To check a `KSRight` you can use the function `has_right('name of right')`
 
-To check a KSRole you can use the function `has_role('name of role')`
+To check a `KSRole` you can use the function `has_role('name of role')`
 
 To check if a `KSRole` has a `KSRight` you can use the filter `KSRole object|roleHasRight('name of right')`
 
