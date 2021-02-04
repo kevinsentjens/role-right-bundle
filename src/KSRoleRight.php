@@ -101,7 +101,7 @@ class KSRoleRight
     }
 
     /**
-     * Get KSRight by name of the right. E.g. manage-users.
+     * Get KSRight with the name of the right. E.g. manage-users.
      * @param string $ksRight
      * @return array|KSRight
      */
@@ -123,7 +123,7 @@ class KSRoleRight
     }
 
     /**
-     * Get KSRole by name of the role. E.g. SUPER_ADMIN.
+     * Get KSRole with the name of the role. E.g. SUPER_ADMIN.
      * @param string $ksRole
      * @return array|KSRole
      */
@@ -134,6 +134,50 @@ class KSRoleRight
             ->from('App:KSRole', 'ev')
             ->where('ev.ks_role = :ksRole')
             ->setParameter('ksRole', $ksRole)
+            ->setMaxResults(1)
+        ;
+        $result = $query->getQuery()->getResult();
+        if (!empty($result))
+        {
+            return $result[0];
+        }
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Get KSRight with the id of the right. E.g. 1.
+     * @param string $ksRightId
+     * @return array|KSRight
+     */
+    public function getKSRightById(string $ksRightId)
+    {
+        $query = $this->entityManager->createQueryBuilder();
+        $query->select('ev')
+            ->from('App:KSRight', 'ev')
+            ->where('ev.id = :ksRightId')
+            ->setParameter('ksRightId', $ksRightId)
+            ->setMaxResults(1)
+        ;
+        $result = $query->getQuery()->getResult();
+        if (!empty($result))
+        {
+            return $result[0];
+        }
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Get KSRole with the id of the role. E.g. 1.
+     * @param int $ksRoleId
+     * @return array|KSRole
+     */
+    public function getKSRoleById(int $ksRoleId)
+    {
+        $query = $this->entityManager->createQueryBuilder();
+        $query->select('ev')
+            ->from('App:KSRole', 'ev')
+            ->where('ev.id = :ksRoleId')
+            ->setParameter('ksRoleId', $ksRoleId)
             ->setMaxResults(1)
         ;
         $result = $query->getQuery()->getResult();
