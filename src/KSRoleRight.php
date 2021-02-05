@@ -41,8 +41,8 @@ class KSRoleRight
      */
     public function hasKSRight(string $ksRight): bool
     {
-        $user = $this->getUserByEmail($this->security->getUser()->getUsername());
-        if (!empty($user))
+        $user = $this->security->getUser();
+        if ($user !== null)
         {
             foreach ($user->getKsRoles() as $role)
             {
@@ -65,8 +65,8 @@ class KSRoleRight
      */
     public function hasKSRole(string $ksRole): bool
     {
-        $user = $this->getUserByEmail($this->security->getUser()->getUsername());
-        if (!empty($user))
+        $user = $this->security->getUser();
+        if ($user !== null)
         {
             foreach ($user->getKsRoles() as $role)
             {
@@ -77,27 +77,6 @@ class KSRoleRight
             }
         }
         return false;
-    }
-
-    /**
-     * @param string $email
-     * @return array|User
-     */
-    private function getUserByEmail(string $email)
-    {
-        $query = $this->entityManager->createQueryBuilder();
-        $query->select('ev')
-            ->from('App:User', 'ev')
-            ->where('ev.email = :email')
-            ->setParameter('email', $email)
-            ->setMaxResults(1)
-        ;
-        $result = $query->getQuery()->getResult();
-        if (!empty($result))
-        {
-            return $result[0];
-        }
-        return $query->getQuery()->getResult();
     }
 
     /**

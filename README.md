@@ -87,6 +87,9 @@ This package is free software distributed under the terms of the [MIT license](L
 * Provide controllers and views
 
 ## Updates
+* Februari 5th 2021
+    * Changed things internally for the `hasKSRole()` and `hasKSRight()`
+    * Removed private function `getUserByEmail()`. This is not used anymore.
 * Februari 4th 2021
     * Added methods in the `KSRoleRight` class to get `KSRole` and `KSRight` by name
     * Added methods in the `KSRoleRight` class to get `KSRole` and `KSRight` by id
