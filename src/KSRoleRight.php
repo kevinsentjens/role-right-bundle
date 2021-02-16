@@ -41,7 +41,7 @@ class KSRoleRight
      */
     public function hasKSRight(string $ksRight): bool
     {
-        $user = $this->security->getUser();
+        $user = $this->getCurrentUser();
         if ($user !== null)
         {
             foreach ($user->getKsRoles() as $role)
@@ -65,7 +65,7 @@ class KSRoleRight
      */
     public function hasKSRole(string $ksRole): bool
     {
-        $user = $this->security->getUser();
+        $user = $this->getCurrentUser();
         if ($user !== null)
         {
             foreach ($user->getKsRoles() as $role)
@@ -165,5 +165,14 @@ class KSRoleRight
             return $result[0];
         }
         return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Get logged in user
+     * @return \Symfony\Component\Security\Core\User\UserInterface|null
+     */
+    public function getCurrentUser()
+    {
+        return $this->security->getUser();
     }
 }

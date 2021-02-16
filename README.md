@@ -87,6 +87,8 @@ This package is free software distributed under the terms of the [MIT license](L
 * Provide controllers and views
 
 ## Updates
+* Februari 6th 2021
+    * Added method `getCurrentUser()` so you don't have to use the `security->getUser()` anymore.
 * Februari 5th 2021
     * Changed things internally for the `hasKSRole()` and `hasKSRight()`
     * Removed private function `getUserByEmail()`. This is not used anymore.
