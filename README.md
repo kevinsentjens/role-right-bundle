@@ -87,6 +87,8 @@ This package is free software distributed under the terms of the [MIT license](L
 * Provide controllers and views
 
 ## Updates
+* March 22th 2021
+    * Changed `composer.json`. This package can now be used in any Symfony 5.* package (might be changed on a later date).
 * Februari 6th 2021
     * Added method `getCurrentUser()` so you don't have to use the `security->getUser()` anymore.
 * Februari 5th 2021
