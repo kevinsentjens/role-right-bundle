@@ -12,13 +12,13 @@
     ],
     "require": {
         "php": "^7.2.5",
-        "symfony/console": "^5.*",
-        "symfony/http-kernel": "^5.*",
+        "symfony/console": "5.*",
+        "symfony/http-kernel": "5.*",
         "symfony/orm-pack": "*",
         "symfony/security-bundle": "5.*",
         "symfony/twig-pack": "*",
-        "symfony/dependency-injection": "^5.*",
-        "symfony/config": "^5.*"
+        "symfony/dependency-injection": "5.*",
+        "symfony/config": "5.*"
     },
     "autoload": {
         "psr-4": {
